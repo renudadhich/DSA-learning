@@ -16,7 +16,7 @@ Algo : The idea is to find the pivot point, divide the array in two sub-arrays a
 The main idea for finding pivot is – for a sorted (in increasing order) and pivoted array, 
 pivot element is the only element for which next element to it is smaller than it.
 1.first find pivot point in the array (pivot point in the exp 1 is 10)
-2.then divide array of n numbers in two parts . first is Arr1(0,pivot-1) and second Arr2(pivot,n-1)
+2.then divide array of n numbers in two parts . first is Arr1(0,pivot-1) and second Arr2(pivot+1,n-1)
 3.using binary search algo find element in the first array if element to find is greater than first Arr[0] (Arr is given array) Else  in the second array
 4.If element is found in selected sub-array then return index
      Else return -1.
@@ -24,7 +24,6 @@ pivot element is the only element for which next element to it is smaller than i
 const binarySearch = (inputArr, searchElement, low, high) => {
   if (low > high) return -1;
   const mid = Math.ceil((low + high) / 2);
-  console.log('mid', mid);
   if (searchElement === inputArr[mid]) return mid;
   if (searchElement < inputArr[mid]) return binarySearch(inputArr, searchElement, low, mid - 1);
 
@@ -36,21 +35,16 @@ const binarySearch = (inputArr, searchElement, low, high) => {
 const findPivotNumber = (inputArr, low, high) => {
   if (low > high) return -1;
   if (low === high) return low;
-  const mid = low + high / 2;
-  console.log('mid-0', mid);
-  if (mid < high && inputArr[mid] > inputArr[mid + 1]) {
-    console.log('mid-1', mid);
+  const mid = Math.ceil((low + high) / 2);  
+ if (mid < high && inputArr[mid] > inputArr[mid + 1]) {
     return mid;
   }
   if (low < mid && inputArr[mid - 1] > inputArr[mid]) {
-    console.log('mid-2', mid);
     return mid - 1;
   }
-  if (inputArr[low] >= inputArr[mid]) {
-    console.log('mid-3', mid);
+  if (inputArr[low] >= inputArr[mid]) {     
     return findPivotNumber(inputArr, low, mid - 1);
   }
-  console.log('mid-4', mid);
   return findPivotNumber(inputArr, mid + 1, high);
 };
 
@@ -78,3 +72,4 @@ const getIndexOfItem = (rotatedArr, search) => {
   }
 };
 getIndexOfItem(rotatedArr, search);
+getIndexOfItem([3,2,1,5,4], search);
