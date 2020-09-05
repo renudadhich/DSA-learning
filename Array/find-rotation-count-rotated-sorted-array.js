@@ -26,18 +26,18 @@ const countRotationInSortedPivotedArr = (inputArr) => {
   return findMinimumIndex(inputArr, low, high);
 };
 
-const arr = [2,3, 4, 5, 1];
+const arr = [2, 3, 4, 5, 1];
 console.log('rotation count ==> ', countRotationInSortedPivotedArr(arr));
-console.log("rotation count is =>",countRotationInSortedPivotedArr([15, 18, 2, 3, 6, 12]));
+console.log('rotation count is =>', countRotationInSortedPivotedArr([15, 18, 2, 3, 6, 12]));
 
 /**
  * if we have to find minimum element in the pivoted and sorted array ,
  * we can use this same method and we can return element at that index.
- * 
+ *
  */
 const findMinimumInPivotedSortedArray = (inputArr) => {
-    const low = 0;
-    const high = inputArr.length - 1;
-    return inputArr[findMinimumIndex(inputArr, low, high)];
-}
-console.log(" minimum element in the array =>",findMinimumInPivotedSortedArray(arr));
+  const low = 0;
+  const high = inputArr.length - 1;
+  return inputArr[findMinimumIndex(inputArr, low, high)];
+};
+console.log(' minimum element in the array =>', findMinimumInPivotedSortedArray(arr));
