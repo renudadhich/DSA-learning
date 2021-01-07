@@ -5,23 +5,21 @@
  * str1="hello" str2 ="helo" // false
  */
 
- const checkAnagrams = (str1,str2) =>{
-     if(str1.length !== str2.length) {
-         return false;
-     }
-     let frequencyCounter ={};
-     for(let char of str1) {
-        frequencyCounter[char] =  (frequencyCounter[char] || 0) +1;
-     }
-     for (let char of str2) {
-        frequencyCounter[char] =  (frequencyCounter[char] || 0) -1;
-     }
-     for(let key in frequencyCounter) {
-         if(frequencyCounter[key] === -1 || frequencyCounter[key] !==0) {
-             return false;
-         }
-         
-     }
-     return true;
- }
- console.log(checkAnagrams("hello",""));
+const checkAnagrams = (str1, str2) => {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  let frequencyCounter = {};
+  for (let char of str1) {
+    frequencyCounter[char] = (frequencyCounter[char] || 0) + 1;
+  }
+  for (let char of str2) {
+    if (!frequencyCounter[char]) {
+      return false;
+    } else {
+      frequencyCounter[char] = frequencyCounter[char] - 1;
+    }
+  }
+  return true;
+};
+console.log(checkAnagrams('olleh', 'hello'));
