@@ -26,9 +26,9 @@ const firstZeroSum = (inputArr) => {
   }
   return undefined;
 };
-console.log(firstZeroSum([-4,-3,-2,-1,0,1,2,5]));
-console.log(firstZeroSum([]));
-console.log(firstZeroSum([-4,-3,-2,1,0,5]));
+// console.log(firstZeroSum([-4,-3,-2,-1,0,1,2,5]));
+// console.log(firstZeroSum([]));
+// console.log(firstZeroSum([-4,-3,-2,1,0,5]));
 
 /**
  * this is optimal solution to solve it in O(n) complexity
@@ -51,6 +51,25 @@ const optimalFirstZeroSum =(inputArr)=>{
       }
       return undefined;
 }
-console.log(optimalFirstZeroSum([-4,-3,-2,-1,0,1,2,5]));
-console.log(optimalFirstZeroSum([]));
-console.log(optimalFirstZeroSum([-4,-3,-2,1,0,5]));
+// console.log(optimalFirstZeroSum([-4,-3,-2,-1,0,1,2,5]));
+// console.log(optimalFirstZeroSum([]));
+// console.log(optimalFirstZeroSum([-4,-3,-2,1,0,5]));
+const optimalFirstNumberSum =(inputArr,number)=>{
+    let left = 0,right = inputArr.length-1;
+    if(inputArr.length===0) return undefined;
+
+    while(left<right) {
+        let sum = inputArr[left] +inputArr[right];
+        if(sum===number){
+            return [ inputArr[left],inputArr[right]];
+        } else if(sum>number) {
+            right--;
+        } else{
+            left++;
+        }
+    }
+    return undefined;
+}
+console.log(optimalFirstNumberSum([-4,-3,-2,-1,0,1,2,5],2));
+console.log(optimalFirstNumberSum([],2));
+console.log(optimalFirstNumberSum([-4,-3,-2,1,0,5],2));
