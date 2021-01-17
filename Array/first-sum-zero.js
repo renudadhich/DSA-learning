@@ -1,4 +1,4 @@
-/**
+/**  multipointer patterrn problem
  * get first number pair from the array whose sum is zero
  * use two pointers to solve in O(n) time
  * exp: [-4,-3,-2,-1,0,1,2,5]  // [-2,2]

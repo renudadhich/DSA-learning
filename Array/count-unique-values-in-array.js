@@ -38,3 +38,9 @@ const countUniqueValuesWithoutExtraVar = (inputArr) => {
   return i;
 };
 console.log(countUniqueValuesWithoutExtraVar([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 13]));
+
+/**another simple solution is using set */
+function uniqueValues (arr){
+  return new Set(arr).size;
+}
+console.log(uniqueValues([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 13]));
