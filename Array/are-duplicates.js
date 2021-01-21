@@ -29,6 +29,10 @@ console.log(areDuplicatesWithSet(1,2,3));
    return false;
  }
  console.log(areDuplicatesWithfreqCount(1,2,3));
+ /**
+  * 
+  * @param  {...any} args using multiple pointers pattern
+  */
  const areDuplicatesWithMulPointer = (...args)=>{
      // Two pointers
         args.sort((a,b) => a > b);

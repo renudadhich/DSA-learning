@@ -1,5 +1,5 @@
-/**  multipointer patterrn problem
- * get first number pair from the array whose sum is zero
+/**  multipointer pattern problem
+ * get first number pair from the array whose sum is zero,array is sorted here
  * use two pointers to solve in O(n) time
  * exp: [-4,-3,-2,-1,0,1,2,5]  // [-2,2]
  * if there are no values whose sum is zero then return null or undefined
@@ -73,3 +73,4 @@ const optimalFirstNumberSum =(inputArr,number)=>{
 console.log(optimalFirstNumberSum([-4,-3,-2,-1,0,1,2,5],2));
 console.log(optimalFirstNumberSum([],2));
 console.log(optimalFirstNumberSum([-4,-3,-2,1,0,5],2));
+

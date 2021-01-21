@@ -1,3 +1,7 @@
+/**
+ * This is also example of multiple pointer pattern
+ * 
+ */
 const swapNumbers = (arr, first, second) => {
   let temp;
   temp = arr[first];
