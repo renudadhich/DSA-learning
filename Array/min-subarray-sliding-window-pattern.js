@@ -50,6 +50,7 @@ console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 55)); // ==>5
 
 /**
  * This is optimal solution
+ * O(n) complexity
  */
 const optimalMinSubArrayLen = (arr, num) => {
   let total = 0,
