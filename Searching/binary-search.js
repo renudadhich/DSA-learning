@@ -41,7 +41,7 @@ const binarySearch = (value, low, high) => {
 const search =(inputArr,value)=> {
     let min =0;
     let max = inputArr.length-1;
-    while(min<max){
+    while(min < max){
         let mid =Math.floor((min+max)/2);
         console.log("mid",mid);
         if(inputArr[mid]<value) {

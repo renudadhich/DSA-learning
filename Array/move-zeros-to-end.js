@@ -15,7 +15,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-const moveZeroes = function(nums) {
+const moveZeroes = function(nums) {   // time complexity O(n)
     let insertPosition = 0;
    
     for(var index=0; index < nums.length; index++) {
@@ -31,4 +31,18 @@ const moveZeroes = function(nums) {
     }
     return nums;
 };
+console.log(moveZeroes([0,1,0,3,12]));
+
+
+const moveZerosEnd = (input) => {   // complexity O(logn)
+    let i = 0, j = input.length-1;
+    while(i < j) {
+     if(input[i] === 0) {
+        swap(input, i, j);
+        j--;
+     } 
+     i++;
+    } 
+    return input; 
+}
 console.log(moveZeroes([0,1,0,3,12]));

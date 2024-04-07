@@ -7,6 +7,13 @@
  * exp :maxSubArraySum([4,2,1,6,2],4) // 13
  * exp: maxSubArraySum([],4) // null
  *
+ * 
+ * efficient solution explaination : we need to find  array continous window with n size whose sum is maximum
+ *  input = [1,2,5,2,8,1,5], n=4
+ *    first iterate and get sum till first 4 element and store maxsum as sum
+ * next iterate elements starting from 4th postion till end of the array  
+ * each time subtract first most element from window and next element from array list
+ * calculate sum and find max of sum and previous maxSum
  */
 
 /**
@@ -51,7 +58,7 @@ const optimalMaxSubArraySum = (inputArr, num) => {
   }
   sum = maxsum;
   for (let j = num; j < inputArr.length; j++) {
-    sum = sum -inputArr[j - num]+ inputArr[j] ;
+    sum = sum -inputArr[j - num]+ inputArr[j] ; //  for num = 4 =>  0, 4  => 1, 5 =>  2,6 => 3, 7
    
       maxsum = Math.max(sum,maxsum);
     
