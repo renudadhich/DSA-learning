@@ -1,21 +1,24 @@
 var str1 = '(a+b)'; // valid
 var str2 = '{a(+b})'; // invalid
 var str3 = '(a{+b)})'; // invalid
-const checkBrackets = (inputStr) => {
-  let closingBrackets = [')', '}', ']'];
-  let openArray = [];
-  let brackets = { '{': '}', '(': ')', '[': ']' };
-  for (let i = 0; i < inputStr.length; i++) {
-    let value = inputStr[i];
-    if (brackets[value]) {
-      openArray.push(value);
-    } else if (closingBrackets.includes(value)) {
-      let lastElement = openArray.pop();
-      if (brackets[lastElement] !== value) {
-        return 'InValid string';
+const isValid = (str) => {
+  const brackets = {"{": "}", "(" : ")", "[": "]"};
+  const closingBrackets = ["}", ")", "]"];
+  if(str.length <= 1) return false;
+  let openArr = [];
+ for(let index = 0; index < str.length; index++) {
+  const value = str[index];
+   if(brackets[value]) {
+      openArr.push(value);
+   } else if(closingBrackets.includes(value)) {
+      if(!openArr.length || brackets[openArr[openArr.length-1]] !== value) {
+          return false;
       }
-    }
-  }
-  return 'valid string';
+      openArr.pop();
+   }
+   
+ }
+ 
+ return !openArr.length;
 };
 console.log(checkBrackets(str2));

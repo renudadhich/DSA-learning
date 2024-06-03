@@ -42,11 +42,10 @@ const search =(inputArr,value)=> {
     let min =0;
     let max = inputArr.length-1;
     while(min < max){
-        let mid =Math.floor((min+max)/2);
-        console.log("mid",mid);
-        if(inputArr[mid]<value) {
+        let mid = Math.floor((min+max)/2);
+        if(inputArr[mid] < value) {
             min = mid+1;
-        } else if(inputArr[mid]>value) {
+        } else if(inputArr[mid] > value) {
             max = mid-1;
         } else {
             return mid;
