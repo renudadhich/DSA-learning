@@ -19,7 +19,7 @@ const countUniqueValuesInSortedArray = (inputArr) => {
   }
   return counter;
 };
-console.log(countUniqueValuesInSortedArray([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 13]));
+// console.log(countUniqueValuesInSortedArray([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 13]));
 
 /** using two pointers we don't need to use extra variables */
 const countUniqueValuesWithoutExtraVar = (inputArr) => {
@@ -33,7 +33,10 @@ const countUniqueValuesWithoutExtraVar = (inputArr) => {
       }
       j++;
     }
+    /** print the array */ 
+    console.log("final array", inputArr.slice(0, i+1));
     return i + 1;
+    
   }
   return i;
 };
@@ -43,4 +46,4 @@ console.log(countUniqueValuesWithoutExtraVar([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 
 function uniqueValues (arr){
   return new Set(arr).size;
 }
-console.log(uniqueValues([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 13]));
+// console.log(uniqueValues([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 13]));

@@ -45,4 +45,4 @@ const moveZerosEnd = (input) => {   // complexity O(logn)
     } 
     return input; 
 }
-console.log(moveZeroes([0,1,0,3,12]));
+console.log(moveZeroes([0,1,0,2,0,1,1,1]));

@@ -94,3 +94,18 @@ return minLength === Infinity ? 0 : minLength ;
 }
 
 console.log(minSubArray([2, 3, 1, 2, 4, 3], 7));
+
+
+const removeduplicates = (nums) => {
+   let start =0, end =1; 
+   while(end < nums.length) {
+     if(nums[start] !== nums[end]) {
+      start++;
+      nums[start] = nums[end];
+        
+     }
+     end++;
+   }
+   console.log("nums", nums, start);
+}
+console.log(removeduplicates([1, 2, 3, 3, 4, 4, 4, 4, 4, 7, 12, 13]));

@@ -14,31 +14,29 @@ const findLongestSubstring = (str) => {
   }
   return substr;
 };
-console.log(findLongestSubstring('rithmschool'));
-console.log(findLongestSubstring('thisisawesome'));
-function findLongestSubstring1(str) {
-  let longest = 0;
-  // Creating a set to store the last positions of occurrence
-  let seen = {};
-  // starting the inital point of window to index 0
-  let start = 0;
+// console.log(findLongestSubstring('rithmschool'));
+ console.log(findLongestSubstring('thisisawesome'));
 
-  for (let i = 0; i < str.length; i++) {
-    let char = str[i];
-    // # Checking if we have already seen the element or not
-    if (seen[char]) {
-      //  If we have seen the number, move the start pointer
-      //      to position after the last occurrence
-      start = Math.max(start, seen[char] + 1);
-    }
-    // index - beginning of substring + 1 (to include current in count)
-    // Updating the last seen value of the character
-    longest = Math.max(longest, i - start + 1);
+// using has and apssing all test cases
+function longestUniqueSubsttr(s) {
+  let set = new Set();
+  let left = 0;
+  let maxSize = 0;
 
-    // store the index of the next char so as to not double count
-    seen[char] = i;
+  if (s.length === 0) return 0;
+  if (s.length === 1) return 1;
+
+  for (let i = 0; i < s.length; i++) {
+
+      while (set.has(s[i])) {
+          set.delete(s[left])
+          left++;
+      }
+      set.add(s[i]);
+      
+      maxSize = Math.max(maxSize, i - left + 1);
   }
-  return longest;
+  return maxSize;
 }
-console.log(findLongestSubstring1('rithmsc hool'));
-console.log(findLongestSubstring1('this is awesom e'));
+
+console.log(longestUniqueSubsttr("thisisawesome"));

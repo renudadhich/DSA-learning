@@ -14,14 +14,14 @@ function sortBinaryArray(unsortedArr) {  // complexity - O(logn)
   let j = unsortedArr.length - 1,  
     i = 0;
   while (i < j) {
-     if(unsortedArr[i] === 1) {
+     if(unsortedArr[i] === 0) i++;
+     else {
       swapNumbers(unsortedArr, i, j);
       j--;
     }
-    i++;
   }
   return unsortedArr;
 }
-console.log(sortBinaryArray(binaryArr));
+console.log(sortBinaryArray([0,1,0,0,1,1,1]));
 
 

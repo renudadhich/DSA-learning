@@ -52,9 +52,7 @@ const findNextPermutation = (numbers) => {
         }
         for(let j = numbers.length-1; j > leftSwap; j--) {   // find next largest from leftSwap
             if(numbers[j] > numbers[leftSwap]) {
-                    // [numbers[j], numbers[leftSwap]] = [numbers[leftSwap], numbers[j]];
-                
-                 swap(numbers, j, leftSwap);
+                   swap(numbers, j, leftSwap);
                   reverse(numbers, leftSwap+1, numbers.length-1);
                  
                 break; 
