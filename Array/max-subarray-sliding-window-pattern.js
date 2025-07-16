@@ -37,12 +37,12 @@ const maxSubArraySum = (inputArr, n) => {
   }
   return maxsum;
 };
- console.log(maxSubArraySum([1,2,5,2,8,1,5],2)); //10
- console.log(maxSubArraySum([1,2,5,2,8,1,5],4)) // 17
- console.log( maxSubArraySum([4,2,1,6],1)) // 6
- console.log(maxSubArraySum([4,2,1,6,2],4)) // 13
- console.log( maxSubArraySum([],4)) // null
- console.log(console.log(maxSubArraySum([-3, 4, 0, -2, 6, -1], 2))) //5
+console.log(maxSubArraySum([1, 2, 5, 2, 8, 1, 5], 2)); //10
+console.log(maxSubArraySum([1, 2, 5, 2, 8, 1, 5], 4)) // 17
+console.log(maxSubArraySum([4, 2, 1, 6], 1)) // 6
+console.log(maxSubArraySum([4, 2, 1, 6, 2], 4)) // 13
+console.log(maxSubArraySum([], 4)) // null
+console.log(console.log(maxSubArraySum([-3, 4, 0, -2, 6, -1], 2))) //5
 /**
  * optimal solution in O(n) complexity with silding window pattern
  * we will be shifting array window to get maz sum within one loop that is O(n)
@@ -58,18 +58,18 @@ const optimalMaxSubArraySum = (inputArr, num) => {
   }
   sum = maxsum;
   for (let j = num; j < inputArr.length; j++) {
-    sum = sum -inputArr[j - num]+ inputArr[j] ; //  for num = 4 =>  0, 4  => 1, 5 =>  2,6 => 3, 7
-   
-      maxsum = Math.max(sum,maxsum);
-    
+    sum = sum - inputArr[j - num] + inputArr[j]; //  for num = 4 =>  0, 4  => 1, 5 =>  2,6 => 3, 7
+
+    maxsum = Math.max(sum, maxsum);
+
   }
 
   return maxsum;
 
 };
-  console.log(optimalMaxSubArraySum([1,2,5,2,8,1,5],2)); //10
-  console.log(optimalMaxSubArraySum([1,2,5,2,8,1,5],4)) // 17
-  console.log( optimalMaxSubArraySum([4,2,1,6],1)) // 6
-  console.log(optimalMaxSubArraySum([4,2,1,6,2],4)) // 13
-  console.log( optimalMaxSubArraySum([],4)) // null
-  console.log(optimalMaxSubArraySum([-3, 4, 0, -2, 6, -1], 2)); // 5
+console.log(optimalMaxSubArraySum([1, 2, 5, 2, 8, 1, 5], 2)); //10
+console.log(optimalMaxSubArraySum([1, 2, 5, 2, 8, 1, 5], 4)) // 17
+console.log(optimalMaxSubArraySum([4, 2, 1, 6], 1)) // 6
+console.log(optimalMaxSubArraySum([4, 2, 1, 6, 2], 4)) // 13
+console.log(optimalMaxSubArraySum([], 4)) // null
+console.log(optimalMaxSubArraySum([-3, 4, 0, -2, 6, -1], 2)); // 5

@@ -29,7 +29,6 @@ const rainWaterTrapping = (nums) => {
         }
         right_Array[j] = rightmax;
     }
-    console.log("left", left_Array, "right", right_Array);
     for(let index = 0; index< nums.length; index++) {
         output += Math.min(left_Array[index], right_Array[index]) - nums[index];
     }

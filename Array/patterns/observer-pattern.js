@@ -1,48 +1,64 @@
-function observerPattern () {
-    var map = new Map();
+class eventEmitter  {
+    constructor() {
+      this.events = Object.create(null);
+    }
 
- function subscribe (subject, listener) {
-      if(subject) {
-       map.set(subject, listener);
+  subscribe (eventName, listener) {
+      if(!Object.hasOwn(this.events, eventName)) {
+       this.events[eventName] = [];
      }
+     if(Array.isArray(listener)) {  /** to support multiple listeners */
+        listener.forEach((item) =>{
+          this.events[eventName].push(item);
+        })
+     } else {
+       this.events[eventName].push(listener);
+     }
+    
    }
 
-  function unsubscribe (subject) {
-     if(map.get(subject)) {
-        map.remove(subject);
-      }
+   unsubscribe (eventName, listener) {
+     if(!Object.hasOwn(this.events, eventName)){
+        return;
+     }
+   const listners = this.events[eventName];
+  const foundIndex = listners.findIndex((item) => item === listener);
+  if(foundIndex != -1) {
+    this.events[eventName].splice(foundIndex, 1);
+  }
+
+       
  }
-  function notify (subject) {
-    if(map.get(subject)) {
-        const found = map.get(subject);
-           if(found.length < 0) {
-            console.log("no listener attached to it .. please at least one");
-           
-           } else {
-           console.log("fopud", found);
-           for(var index = 0; index < found.length; index ++) {
-              found[index]();
-           }
-        }
+   emit (eventName, ...args) {
+    if(!Object.hasOwn(this.events, eventName)){
+      return;
+   }
+   
+   const listners = this.events[eventName];
+  for(var index = 0; index < listners.length; index ++) {
+            listners[index].apply(null, args);
     }
-    
-    
+      
+    }
   }
-  return {
-    subscribe,
-    unsubscribe,
-    notify
-  }
+
+var obj = new eventEmitter();
+const show1 = function () {
+  console.log("i am called topic2");
 }
+obj.subscribe("topic1", [function show(b) {
+    console.log("i am called topic1", b);
+}, show1]);
+obj.subscribe("topic1", function show2(a) {
+    console.log("i am called topic3", a);
+});
 
-// var obj = observerPattern();
-// obj.subscribe("topic1", [function show() {
-//     console.log("i am called topic1");
-// }, function show1() {
-//     console.log("i am called topic2 233");
-// }]);
-// // obj.subscribe("topic1", function show() {
-// //     console.log("i am called topic2 233");
-// // });
 
-// obj.notify("topic1");
+obj.emit("topic1", 34);
+obj.unsubscribe("topic1", show1)
+obj.emit("topic1", 34);
+
+obj.subscribe("topic2", function show2(a) {
+  console.log("i am called topics", a);
+});
+obj.emit("topic2", 35);

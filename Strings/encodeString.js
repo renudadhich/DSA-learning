@@ -7,8 +7,7 @@ const encodeStr = (str) => {
    let output = "";
   
    for(var i= 0; i < str.length; i++) {
-      if(prev !== str[i]){
-        console.log("count ", count);
+      if(prev !== str[i]) {
          output += `${prev}${count}`;
          prev = str[i];
          count = 1;
@@ -24,4 +23,4 @@ const encodeStr = (str) => {
    return output;
 }
 
-console.log(encodeStr("aaaabbcccccddd"));
+console.log(encodeStr("abbcccccdddt"));

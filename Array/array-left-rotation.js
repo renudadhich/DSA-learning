@@ -33,6 +33,16 @@ const reverse = (arr, start, end) => {
     end--;
   }
 };
+/**
+ * Rotates an array to the left by a specified number of positions using the reverse method.
+ *
+ * This function modifies the input array in place by reversing segments of the array
+ * and then reversing the entire array to achieve the left rotation.
+ *
+ * @param {Array} inputArr - The array to be rotated.
+ * @param {number} rotateByNo - The number of positions to rotate the array to the left.
+ * @returns {Array} - The rotated array.
+ */
 const rotateArrayByReverse = (inputArr, rotateByNo) => {
   const arrLength = inputArr.length;
   reverse(inputArr, 0, rotateByNo - 1);
@@ -52,10 +62,10 @@ const rotateLeft = (array, d) => {
   }
   return array;
 };
-console.log(rotateLeft([1, 2, 3, 4, 5, 6, 7], rotateByNo));
+//console.log(rotateLeft([1, 2, 3, 4, 5, 6, 7], rotateByNo));
 
 /** method 3*/
 const rotateBySlice = (array, d) => {
   return array.slice(d, array.length).concat(array.slice(0, d));
 };
-console.log(rotateBySlice([1, 2, 3, 4, 5, 6, 7], rotateByNo));
+//console.log(rotateBySlice([1, 2, 3, 4, 5, 6, 7], rotateByNo));

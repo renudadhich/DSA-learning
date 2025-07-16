@@ -35,6 +35,7 @@ for(let index = arr.length-1; index >= 0; index--) {
     output += output ? " " +arr[index] : arr[index];
  }
 }
-return output
+return output;
 }
-reverseWords("example  is here");
+
+console.log(reverseWords("example   is here"));

@@ -28,37 +28,36 @@ Explanation: Add '(' to match the first '))', Add '))' to match the last '('.
  */
 
 const minInsertionBalanced = (str) => {
-    let openBrackets = [], count = 0; let index=0;
-     while(index < str.length) {
-     if(str[index] === "(") {
-           openBrackets.push(str[index]);
-           index++;
-     } else {
-        if(openBrackets.length === 0) {
-           if(index < str.length-1 && str[index+1] === ")")  {
-            count++;
-            index = index+2;
-           } else {
-             count = count+2;
-             index++;
-           }
+    let openBrackets = [], count = 0; let index = 0;
+    while (index < str.length) {
+        if (str[index] === "(") {
+            openBrackets.push(str[index]);
+            index++;
         } else {
-            if(index < str.length-1 && str[index+1] === ")")  {
-                index = index+2;
+            if (openBrackets.length === 0) {
+                if (index < str.length - 1 && str[index + 1] === ")") {
+                    count++;
+                    index = index + 2;
+                } else {
+                    count = count + 2;
+                    index++;
+                }
             } else {
-               count++;
-               index++;
+                if (index < str.length - 1 && str[index + 1] === ")") {
+                    index = index + 2;
+                } else {
+                    count++;
+                    index++;
+                }
+                openBrackets.pop();
             }
-       openBrackets.pop(); 
-     }
+        }
     }
-}
-while(openBrackets.length > 0) {
-    count = count+2;
-    openBrackets.pop();
-
-}
-return count;
+    while (openBrackets.length > 0) {
+        count = count + 2;
+        openBrackets.pop();
+    }
+    return count;
 }
 
 console.log(minInsertionBalanced("))())("));

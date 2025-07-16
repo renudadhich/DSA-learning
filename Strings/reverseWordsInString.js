@@ -37,6 +37,7 @@ const reverse = (str, start, end) => {
 
 const reverseWordsInString = (str) => {
     let strArr = str.split(""), start = 0, end=0;
+    console.log("strArr", strArr);
   while(end < strArr.length) {
    if(strArr[end] === " ") {
      reverse(strArr, start, end-1);

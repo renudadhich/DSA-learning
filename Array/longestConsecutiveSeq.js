@@ -28,15 +28,14 @@ const longestSequence = (nums) => {
     if(nums.length === 1) return 1;
     nums.sort((a,b) => a-b);
     console.log("nums", nums);
-    let count =0, longestSequence = 0;
+    let count = 0, longestSequence = 0;
     for(let index =0; index < nums.length; index++) {
         let diff = nums[index+1] - nums[index];
-       if(diff ===1 ) {
+       if(diff === 1 ) {
         count++;
        } else {
         longestSequence = Math.max(count+1, longestSequence);
-        
-       }
+      }
     }
     return longestSequence;
 }
