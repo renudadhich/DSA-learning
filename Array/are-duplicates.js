@@ -12,7 +12,7 @@
  function areDuplicatesWithSet (...args) {
   return new Set(args).size !== args.length
  }
-console.log(areDuplicatesWithSet(1,2,3));
+//console.log(areDuplicatesWithSet(1,2,3));
  /**
   * using frequency counter pattern
   */
@@ -28,14 +28,15 @@ console.log(areDuplicatesWithSet(1,2,3));
    }
    return false;
  }
- console.log(areDuplicatesWithfreqCount(1,2,3));
+ //console.log(areDuplicatesWithfreqCount(1,2,3));
  /**
   * 
   * @param  {...any} args using multiple pointers pattern
   */
- const areDuplicatesWithMulPointer = (...args)=>{
+ const areDuplicatesWithMulPointer = (args)=>{
      // Two pointers
-        args.sort((a,b) => a > b);
+         args.sort((a,b) => a -b);
+        
         let start = 0;
         let next = 1;
         while(next < args.length){
@@ -48,4 +49,4 @@ console.log(areDuplicatesWithSet(1,2,3));
         return false
       
  }
- console.log(areDuplicatesWithMulPointer(1,2,3));
+ console.log(areDuplicatesWithMulPointer([3,2,6,5,0,3,10,3,10,5]));

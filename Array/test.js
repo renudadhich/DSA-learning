@@ -144,4 +144,43 @@ function solution(U, weight) {
    return turnBackCount;
 }
 
-console.log(solution(9, [5,3,8,1,8,7,7,6]));
+//console.log(solution(9, [5,3,8,1,8,7,7,6]));
+const findFirstOccurance = (nums, target) => {
+  let low =0, high = nums.length-1;
+  while(low <= high) {
+    let mid = low+ Math.floor((high-low)/2);
+    console.log("mid", mid);
+ if(nums[mid] === target && ( mid == 0|| nums[mid-1] < target)){
+        return mid;
+   } else if(nums[mid] < target) {
+       low= mid+1;
+   } else {
+       high = mid-1;
+   }
+  }
+  return -1;
+}
+
+const findLastOccurance = (nums, target) => {
+  let low =0, high = nums.length-1;
+  while(low <= high) {
+    let mid = low+ Math.floor((high-low)/2);
+    console.log("mid", mid);
+ if(nums[mid] === target && ( mid == high|| nums[mid+1] > target)){
+        return mid;
+   } else if(nums[mid] > target) {
+       high= mid-1;
+   } else {
+       low = mid+1;
+   }
+  }
+  return -1;
+}
+
+const findOccurances = (nums, target) => {
+    const first = findFirstOccurance(nums, target);
+    const last = findLastOccurance(nums, target);
+    return [first, last];
+}
+
+console.log("first", findOccurances([1,2,3,3,4,4], 4))

@@ -60,4 +60,22 @@ const removeElement = function(nums, val) {
     return remainingElements; 
   };
 
-  console.log(removeElement([0,1,2,2,3,0,4,2,1,2], 0));
+  //console.log(removeElement([0,1,2,2,3,0,4,2,1,2], 0));
+
+  function removeOptimalElement(nums, val) {
+    let indexForInsertion = 0;
+    let count = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        const curNum = nums[i];
+
+        if (curNum !== val) {
+            nums[indexForInsertion] = curNum;
+            indexForInsertion++;
+            count++;
+        }
+    }
+    console.log("end", nums)
+    return count;
+};
+console.log(removeOptimalElement([0,1,2,2,3,0,4,2,1,2], 0));

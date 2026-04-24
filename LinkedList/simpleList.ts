@@ -30,37 +30,6 @@ LinkedList.prototype.push = function (val) {
   }
 }
 
-
-LinkedList.prototype.remove = function (val) {
-  var current = this.head;
-  //case-1 
-  if (current.value == val) { this.head = current.next; }
-  else {
-    var previous = current;
-    while (current.next) {
-      //case-3 if(current.value == val)
-      {
-        previous.next = current.next;
-        break;
-      }
-      previous = current;
-      current = current.next;
-    }
-    //case -2 if(current.value == val)
-    { previous.next == null; }
-  }
-}
-
-//Detect loop in single list
-function detectLoop(sll) {
-  var slowPointer = sll.head,
-    fastPointer = sll.head;
-  while (slowPointer && fastPointer && fastPointer.next) {
-    slowPointer = slowPointer.next; fastPointer = fastPointer.next.next;
-    if (slowPointer == fastPointer) { return true; }
-  }
-  return false;
-}
 //Remove element from single link list
 LinkedList.prototype.remove = function (val) {
   var current = this.head;
@@ -87,6 +56,20 @@ LinkedList.prototype.remove = function (val) {
   }
 }
 
+
+
+//Detect loop in single list
+function detectLoop(sll) {
+  var slowPointer = sll.head,
+    fastPointer = sll.head;
+  while (slowPointer && fastPointer && fastPointer.next) {
+    slowPointer = slowPointer.next; fastPointer = fastPointer.next.next;
+    if (slowPointer == fastPointer) { return true; }
+  }
+  return false;
+}
+
+
 //Find element at middle position
 //need to complete
 var sll = new LinkedList();
@@ -104,7 +87,7 @@ function reversesll(sll) {
     current = current.next;
   }
   console.log(nodes);
-  var reversedLL = new linklist();
+  var reversedLL = new LinkedList();
 
   reversedLL.head = nodes.pop();
   current = reversedLL.head;
@@ -122,3 +105,12 @@ function reversesll(sll) {
   }
   return reversedLL;
 }
+var list = new LinkedList();
+list.push(10);
+list.push(20);
+list.push(30);
+list.push(40);
+list.push(50);
+console.log(JSON.stringify(list));
+var reversed = reversesll(list);
+console.log(JSON.stringify(reversed));
